@@ -1,7 +1,7 @@
 <template>
   <div id="app">
       <div>
-          hello my friend
+          hello my friend this is dockerized
       </div>
   </div>
 </template>
