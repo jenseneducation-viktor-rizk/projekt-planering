@@ -23,4 +23,4 @@ RUN npm run build
 EXPOSE 8080
 
 #startar http-server och servar mappen dist
-CMD [ "http-server", "dist/" ]
+CMD [ "http-server", "dist" ]
