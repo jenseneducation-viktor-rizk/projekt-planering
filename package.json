@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "vue-cli-service serve",
+    "start": "http-server dist/",
     "build": "vue-cli-service build",
     "test": "vue-cli-service test:unit --watch",
     "lint": "vue-cli-service lint"
