@@ -1,18 +1,18 @@
 <template>
   <div id="home">
-      <h1>
-        Meetup
-      </h1>
-      <p> {{ list }} </p>
+      <Nav />
+      <Header />
       <Search />
   </div>
 </template>
 
 <script>
 import Search from '@/components/Search';
+import Nav from '@/components/Nav';
+import Header from '@/components/Header'
 
 export default {
-  components: { Search },
+  components: { Search, Nav, Header },
   computed: {
     list() {
       return this.$store.state.myList
@@ -23,5 +23,8 @@ export default {
 </script>
 
 <style lang="scss">
+#home {
+  margin: 0 auto;
+}
 
 </style>
