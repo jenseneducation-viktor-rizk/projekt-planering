@@ -3,17 +3,25 @@
       <h1>
         Meetup
       </h1>
+      <p> {{ list }} </p>
       <Search />
   </div>
 </template>
 
 <script>
-import Search from '@/components/Search'
+import Search from '@/components/Search';
+
 export default {
-  components: { Search }
+  components: { Search },
+  computed: {
+    list() {
+      return this.$store.state.myList
+    }
+  }
 }
+
 </script>
 
-<style>
+<style lang="scss">
 
 </style>
