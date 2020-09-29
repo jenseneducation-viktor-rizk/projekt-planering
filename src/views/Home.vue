@@ -3,16 +3,18 @@
       <Nav />
       <Header />
       <Search />
+      <Meetups />
   </div>
 </template>
 
 <script>
 import Search from '@/components/Search';
 import Nav from '@/components/Nav';
-import Header from '@/components/Header'
+import Header from '@/components/Header';
+import Meetups from '@/components/Meetups';
 
 export default {
-  components: { Search, Nav, Header },
+  components: { Search, Nav, Header, Meetups },
   computed: {
     list() {
       return this.$store.state.myList
@@ -25,6 +27,7 @@ export default {
 <style lang="scss">
 #home {
   margin: 0 auto;
+  width: 90vw;
 }
 
 </style>
