@@ -29,6 +29,7 @@ export default {
     justify-content: center;
     align-items: center;
     margin: 10px auto;  
+    min-width: 450px;
     .search-bar {
         font-family: 'Roboto', sans-serif;
         font-weight: 300;

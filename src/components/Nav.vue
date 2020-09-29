@@ -29,12 +29,11 @@ export default {
     padding: 0;
     max-height: 100px;
     width: 100%;
-    
     .nav-container {
         margin: 10px auto;
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
+        align-items: center;
     }
     .logo-dot {
         color: $light-pink;
@@ -48,13 +47,9 @@ export default {
         }
         position: relative;
         text-decoration: none;
-        
     }
-    
-    
     .about, .contact {
         font-weight: 300;
-        // font-style: italic;
         margin-left: 10px;
         &:before, &:after {
             height: 1px;

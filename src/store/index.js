@@ -9,7 +9,14 @@ export default new Vuex.Store({
         myList: list,
         mySearches: searches
     },
-    getters: {},
+    getters: {
+        getEventById: (state) => (i) => {
+            // console.log("incoming id:", i)
+            // console.log("state: ", state.myList.find(e => e.id == i).id)
+            
+            return state.myList.find(event => event.id === i)
+        }
+    },
     mutations: {},
     actions: {}
 });

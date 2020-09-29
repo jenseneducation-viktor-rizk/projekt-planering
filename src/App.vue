@@ -19,6 +19,10 @@ export default {
     font-family: 'Roboto', sans-serif;
     letter-spacing: -1px;
   }
+  p {
+    font-weight: 300;
+    letter-spacing: 0;
+  }
   h1 {
     font-weight: 900;
     font-style: italic;
@@ -37,6 +41,10 @@ export default {
     margin: 0;
     font-weight: 300;
   }
+  h4 {
+    margin: 0;
+    font-weight: 300;
+  }
   .right-header {
     margin-left: auto;
     margin-top: 4vh;
@@ -51,5 +59,13 @@ export default {
     text-align: left;
     max-width: 60vw;
   }
-
+  .bold { font-weight: 900;}
+  .light { font-weight: 400; }
+  .lighter { font-weight: 300;}
+  .lighest { font-weight: 100;}
+ @media screen and (max-width: 500px) {
+   body {
+     width: 500px;
+   }
+ }
   </style>
