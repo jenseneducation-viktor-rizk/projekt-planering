@@ -1,22 +1,19 @@
 <template>
   <div id="search">
-      <input class="search-bar" type="text" v-model="searchWord">
-      <button class="search-button" v-on:click="search">Search</button>
+        <input class="search-bar" type="text" v-model="searchWord">
+        <Button :buttonText="'Search'"/>
   </div>
 </template>
 
 <script>
+import Button from '@/components/Button'
 export default {
+    components: { Button },
     data(){return{
         searchWord: "",
         prevSearches: []
     }},
     methods: {
-        search: function () {
-            
-            this.prevSearches.push(this.searchWord);
-            this.searchWord = "";
-        }
     }
 }
 </script>
@@ -29,7 +26,6 @@ export default {
     justify-content: center;
     align-items: center;
     margin: 10px auto;  
-    min-width: 450px;
     .search-bar {
         font-family: 'Roboto', sans-serif;
         font-weight: 300;
@@ -47,29 +43,6 @@ export default {
         &:hover:not(:focus) {
             border: solid 1px $active;
         }
-    }
-    .search-button {
-        margin: 0 auto 0 5px;
-        padding: 0;
-        font-family: 'Roboto', sans-serif;
-        font-weight: 300;
-        font-size: .9rem;
-        min-width: 60px;
-        max-width: 80px;
-        height: 40px;
-        border-radius: 6px;
-        border: solid 1px $border;
-        background-color: #fff;
-        outline: none;
-        &:hover {
-            border: solid 1px $hover;
-            cursor: pointer;
-        }
-        &:active {
-            background-color: $green;
-        }
-        
-
     }
 }
 

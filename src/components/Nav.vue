@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
       <div class="nav-container">
-        <router-link to="/" class="logo link">
+        <router-link id="logo" to="/" class="logo link">
             <h1 class="logo-text">Meetup</h1>
             <h1 class="logo-dot">.</h1>
         </router-link>

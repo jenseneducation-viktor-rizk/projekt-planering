@@ -16,11 +16,10 @@ import store from '@/store/index.js'
 export default {
     components: { Meetup },
     data(){return{
-        meetups: []
+      meetups: []
     }},
     created: function () {
-        this.meetups = store.state.myList
-        
+      this.meetups = store.state.myList
     }
 }
 </script>

@@ -3,7 +3,7 @@
     <Nav />
     <Search />
     <div class="border">
-      <EventHeader :id="id"/>
+      <EventHeader :id="id" v-on:attendClicked="this.dispatchAttend"/>
     </div>
     <EventInfo />
   </div>
@@ -14,12 +14,16 @@ import Nav from '@/components/Nav'
 import Search from '@/components/Search'
 import EventHeader from '@/components/EventHeader'
 import EventInfo from '@/components/EventInfo'
-// import router from '@/router/index.js'
 export default {
 components: { Nav, Search, EventHeader, EventInfo },
 data(){return{
     id: this.$route.params.id
-}}
+}},
+methods: {
+  dispatchAttend(attend, id){
+    this.$store.dispatch('changeAttend', {attend, id})
+  }
+}
 }
 </script>
 
@@ -33,8 +37,6 @@ data(){return{
 .border {
   width: 90vw;
   overflow: hidden;
-  // border-top: solid 1px $card-border;
-  // border-bottom: solid 1px $card-border;
   display: flex;
   justify-content: flex-start;
   align-items: center;

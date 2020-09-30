@@ -9,7 +9,9 @@
             </h3>
         </div>
         <div class="right-container">
-            <Attend />
+            <Attend v-if="!this.event.attend" v-on:attendClick="this.attend" :buttonText="'Attend'"/>
+            <Attend v-else v-on:attendClick="this.attend" :buttonText="'Neglect'"/>
+            <img v-show="this.event.attend" height="100px" src="https://img.icons8.com/cotton/256/000000/checkmark.png"/>
             <h3>
                Host: {{ this.event.org }}
             </h3>
@@ -22,18 +24,25 @@ import Attend from '@/components/Attend'
 export default {
     components: { Attend },
     data(){return{
-        event: {},
+        willAttend: event.attend,
         dateOptions: { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric',  hour12: false},
     }},
     props: {
         id: String
     },
+    methods: {
+        attend() {
+            this.$emit('attendClicked', !this.event.attend, this.id)
+        }
+    },
     computed: {
-        
+        event: function () {
+            return this.$store.getters.getEventById(this.id);
+        }
     },
     created: function () {
-        // console.log(this.id)
-        this.event = this.$store.getters.getEventById(this.id);
+        console.log(this.event)
+        // this.event = this.$store.getters.getEventById(this.id);
     }
 }
 </script>

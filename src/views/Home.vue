@@ -15,16 +15,12 @@ import Meetups from '@/components/Meetups';
 
 export default {
   components: { Search, Nav, Header, Meetups },
-  computed: {
-    list() {
-      return this.$store.state.myList
-    }
-  }
 }
 
 </script>
 
 <style lang="scss">
+@import "@/styles/colors";
 #home {
   margin: 0 auto;
   width: 90vw;

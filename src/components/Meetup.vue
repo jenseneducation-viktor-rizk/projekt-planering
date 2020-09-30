@@ -10,6 +10,7 @@
         <h4>
             {{ meetup.org }}
         </h4>
+        <img class="attend-icon" v-show="meetup.attend" height="30px" width="30px" src="https://img.icons8.com/cotton/256/000000/checkmark.png"/>
     </div>
     <div class="image-container">
         <img class="image" :src="meetup.img" :alt="meetup.name">
@@ -60,6 +61,11 @@ justify-content: space-between;
 align-items: flex-start;
 flex-direction: column;
 overflow: hidden;
+    .attend-icon {
+        position: absolute;
+        margin-top: 24px;
+        margin-left: 154px;
+    }
     &:hover {
         cursor: pointer;
         border: solid 1px $hover
@@ -80,8 +86,8 @@ overflow: hidden;
     }
     .image-container {
         filter: sepia(0.3);
-        background-position: bottom;
-        width: 200px;
+        background-position: center;
+        width: 250px;
         overflow: hidden;
         .image {
             height: 100%;

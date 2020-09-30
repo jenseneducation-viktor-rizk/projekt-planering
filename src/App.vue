@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss">
 @import "@/styles/fonts.scss";
+@import "@/styles/colors.scss";
   body {
     margin: 0 auto;
     padding: 0;
@@ -20,6 +21,7 @@ export default {
     letter-spacing: -1px;
   }
   p {
+    margin: 0;
     font-weight: 300;
     letter-spacing: 0;
   }
@@ -50,14 +52,14 @@ export default {
     margin-top: 4vh;
     margin-bottom: 4vh;
     text-align: right;
-    max-width: 60vw;
+    max-width: 40%;
   }
   .left-header {
     margin-right: auto;
     margin-top: 4vh;
     margin-bottom: 4vh;
     text-align: left;
-    max-width: 60vw;
+    max-width: 60%;
   }
   .bold { font-weight: 900;}
   .light { font-weight: 400; }
