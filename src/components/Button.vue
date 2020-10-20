@@ -1,13 +1,17 @@
 <template>
-  <button class="button">{{ buttonText }}</button>
+  <button class="button" @click="emitClick">{{ buttonText }}</button>
 </template>
 
 <script>
 export default {
     props: {
         buttonText: String
+    },
+    methods: {
+        emitClick() {
+            this.$emit('buttonClicked')
+        }
     }
-
 }
 </script>
 

@@ -5,7 +5,7 @@
     <div class="border">
       <EventHeader :id="id" v-on:attendClicked="this.dispatchAttend"/>
     </div>
-    <EventInfo />
+    <EventInfo :id="id"/>
   </div>
 </template>
 
