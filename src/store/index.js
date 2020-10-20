@@ -5,7 +5,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
+    
     state: {
         myList: [
             {
@@ -56,12 +57,33 @@ export default new Vuex.Store({
         }
     },
     mutations: {
+        initStore(state) {
+            if(localStorage.getItem('store')) {
+                this.replaceState(
+                    Object.assign(state, JSON.parse(localStorage.getItem('store')))
+                    )
+            }
+            else{
+                localStorage.setItem('store', JSON.stringify(state));
+            }
+        },
         changeAttend(state, payload) {
             Vue.set(state.myList.find(event => event.id === payload.id), 'attend', payload.attend )
+            store.subscribe((mutation, state) => {
+                if (state) {
+                  localStorage.setItem('store', JSON.stringify(state));
+                }
+              });
         },
         storeReview(state, payload) {
             state.myList.find(event => event.id === payload.id).reviews.push(payload.review)
-            console.log(state.myList.find(event => event.id === payload.id).reviews)
+            // console.log(state.myList.find(event => event.id === payload.id).reviews)
+            store.subscribe((mutation, state) => {
+                if (state) {
+                  localStorage.setItem('store', JSON.stringify(state));
+                }
+              });
+    
             // Vue.set(state.myList.find(event => event.id === payload.id).reviews.push(payload.review))
         }
     },
@@ -74,3 +96,4 @@ export default new Vuex.Store({
         }
     }
 });
+export default store;

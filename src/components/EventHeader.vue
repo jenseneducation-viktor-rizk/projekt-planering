@@ -24,7 +24,7 @@ import Attend from '@/components/Attend'
 export default {
     components: { Attend },
     data(){return{
-        willAttend: event.attend,
+        // willAttend: event.attend,
         dateOptions: { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric',  hour12: false},
     }},
     props: {
