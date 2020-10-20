@@ -1,7 +1,7 @@
 <template>
 <div class="review-container">
   <textarea class="review" name="review" id="" cols="40" rows="20" v-model="myReview"></textarea>
-    <Button class="submit" :buttonText="'Submit'" @buttonClicked="trueOrFalse = !trueOrFalse"/> 
+    <Button class="submit" :buttonText="'Submit'" @buttonClicked="submitReview()"/> 
     {{ id }}
 </div>
 </template>
@@ -16,6 +16,11 @@ data(){return{
 }},
 props: {
     id: String
+},
+methods: {
+    submitReview(){
+        
+    }
 }
 }
 </script>
