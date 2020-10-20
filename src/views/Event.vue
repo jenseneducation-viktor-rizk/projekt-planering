@@ -3,7 +3,7 @@
     <Nav />
     <Search />
     <div class="border">
-      <EventHeader :id="id" v-on:attendClicked="this.dispatchAttend"/>
+      <EventHeader :id="id" @attendClicked="this.dispatchAttend"/>
     </div>
     <EventInfo :id="id"/>
   </div>

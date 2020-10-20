@@ -1,8 +1,9 @@
 <template>
 <div class="review-container">
+  <h3>Review</h3>
   <textarea class="review" name="review" id="" cols="40" rows="20" v-model="myReview"></textarea>
-    <Button class="submit" :buttonText="'Submit'" @buttonClicked="submitReview()"/> 
-    {{ id }}
+    <Button class="submit" :buttonText="'Submit'" @buttonClicked="dispatchReview(myReview, id)"/> 
+    <div class="reviews" v-for="(review, i) in reviews" :key="i"> {{ i + 1 }}. {{ review }} </div>
 </div>
 </template>
 
@@ -11,16 +12,21 @@ import Button from '@/components/Button'
 export default {
 components: { Button },
 data(){return{
-    myReview: "",
-    trueOrFalse: false
+    myReview: ""
 }},
 props: {
     id: String
 },
 methods: {
-    submitReview(){
-        
+    dispatchReview(review, id){
+        this.$store.dispatch('storeReview', {review, id})
+        this.myReview = ""
     }
+},
+computed: {
+  reviews: function () {
+    return this.$store.getters.getReviewById(this.id);
+  }
 }
 }
 </script>
@@ -45,6 +51,10 @@ flex-direction: column;
       outline: none;
       border: solid 1px $focus;
     }
+}
+.reviews {
+  width: 100%;
+  text-align: start;
 }
 
 </style>

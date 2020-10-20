@@ -9,8 +9,8 @@
             </h3>
         </div>
         <div class="right-container">
-            <Attend v-if="!this.event.attend" v-on:attendClick="this.attend" :buttonText="'Attend'"/>
-            <Attend v-else v-on:attendClick="this.attend" :buttonText="'Neglect'"/>
+            <Attend v-if="!this.event.attend" @attendClick="this.attend" :buttonText="'Attend'"/>
+            <Attend v-else @attendClick="this.attend" :buttonText="'Neglect'"/>
             <img v-show="this.event.attend" height="100px" src="https://img.icons8.com/cotton/256/000000/checkmark.png"/>
             <h3>
                Host: {{ this.event.org }}
@@ -40,10 +40,6 @@ export default {
             return this.$store.getters.getEventById(this.id);
         }
     },
-    created: function () {
-        console.log(this.event)
-        // this.event = this.$store.getters.getEventById(this.id);
-    }
 }
 </script>
 
