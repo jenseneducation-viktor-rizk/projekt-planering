@@ -8,6 +8,7 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
     
     state: {
+        searchWord: "",
         myList: [
             {
                 name: "Zumba class",
@@ -54,10 +55,15 @@ const store = new Vuex.Store({
         },
         getReviewById: (state) => (i) => {
             return state.myList.find(event => event.id === i).reviews
+        },
+        filteredList: (state) => () => {
+            let newSearchWord = state.searchWord.toLowerCase()
+            return state.myList.filter(event => event.name.toLowerCase().includes(newSearchWord))
         }
     },
     mutations: {
         initStore(state) {
+            console.log(state.myList[0].date)
             if(localStorage.getItem('store')) {
                 this.replaceState(
                     Object.assign(state, JSON.parse(localStorage.getItem('store')))
@@ -85,6 +91,10 @@ const store = new Vuex.Store({
               });
     
             // Vue.set(state.myList.find(event => event.id === payload.id).reviews.push(payload.review))
+        },
+        newSearch(state, mySearch) {
+            state.searchWord = mySearch
+            localStorage.setItem('store', JSON.stringify(state));
         }
     },
     actions: {
@@ -93,6 +103,9 @@ const store = new Vuex.Store({
         },
         storeReview(context, payload) {
             context.commit('storeReview', payload)
+        },
+        searchWordInc(context, mySearch) {
+            context.commit('newSearch', mySearch)
         }
     }
 });

@@ -1,12 +1,14 @@
 <template>
   <div id="search">
-        <input class="search-bar" type="text" v-model="searchWord">
-        <Button :buttonText="'Search'"/>
+    <input class="search-bar" type="text" v-model="searchWord">
+    <Button :buttonText="'Search'" @buttonClicked="dispatchSearch"/>
   </div>
 </template>
 
 <script>
 import Button from '@/components/Button'
+import store from '@/store'
+import router from '@/router'
 export default {
     components: { Button },
     data(){return{
@@ -14,6 +16,20 @@ export default {
         prevSearches: []
     }},
     methods: {
+        dispatchSearch() {
+            router.push("/").catch(err => {
+                if (err.name !== 'NavigationDuplicated' && !err.message.includes('Avoided redundant     navigation to current location')) 
+                {
+                  console.error(err);
+                }
+            });
+            store.dispatch('searchWordInc', this.searchWord);
+        }
+    },
+    computed: {
+        currentSearch: function () {
+            return store.state.searchWord
+        }
     }
 }
 </script>

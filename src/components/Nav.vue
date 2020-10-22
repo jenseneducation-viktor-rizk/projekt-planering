@@ -1,10 +1,10 @@
 <template>
   <div id="nav">
       <div class="nav-container">
-        <router-link id="logo" to="/" class="logo link">
+        <a id="logo" @click="goToHome" class="logo link">
             <h1 class="logo-text">Meetup</h1>
             <h1 class="logo-dot">.</h1>
-        </router-link>
+        </a>
         <div>
             <router-link to="/contact" class="contact link">Contact</router-link>
             <router-link to="/about" class="about link">About</router-link>
@@ -14,8 +14,20 @@
 </template>
 
 <script>
+import store from '@/store'
+import router from '@/router'
 export default {
-
+methods: {
+    goToHome() {
+        store.dispatch('searchWordInc', "")
+        router.push("/").catch(err => {
+            if (err.name !== 'NavigationDuplicated' && !err.message.includes('Avoided redundant navigation to current location')) 
+            {
+              console.error(err);
+            }
+        });
+    }
+}
 
 }
 </script>

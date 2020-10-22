@@ -8,7 +8,7 @@ new Vue({
     store,
     router,
     beforeCreate() {
-        this.$store.commit('initStore')
+        store.commit('initStore')
     },
     render: h => h(App),
 }).$mount('#app')

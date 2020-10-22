@@ -11,15 +11,18 @@
 
 <script>
 import Meetup from '@/components/Meetup'
-import store from '@/store/index.js'
+// import store from '@/store/index.js'
+import store from '@/store'
 
 export default {
     components: { Meetup },
     data(){return{
-      meetups: []
     }},
-    created: function () {
-      this.meetups = store.state.myList
+   
+    computed: {
+      meetups: function () {
+        return store.getters.filteredList()
+      }
     }
 }
 </script>

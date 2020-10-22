@@ -23,8 +23,7 @@ import router from '@/router/index.js'
 
 export default {
     data(){return{
-        dateOptions: { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false},
-        timeOptions: {}
+        dateOptions: { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false}
     }},
     props: {
         meetup: Object
@@ -32,14 +31,14 @@ export default {
     computed: {
         day: function () {
             return this.meetup.date.toLocaleString('se-SE', this.dateOptions)
+            // return this.meetup.date
         }
     },
     created: function () {
-        // console.log(this.day)
+        console.log(this.day)
     },
     methods: {
         route() {
-
             router.push("/event/" + this.meetup.id)
         }
     }

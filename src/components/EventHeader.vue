@@ -21,10 +21,10 @@
 
 <script>
 import Attend from '@/components/Attend'
+import store from '@/store'
 export default {
     components: { Attend },
     data(){return{
-        // willAttend: event.attend,
         dateOptions: { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric',  hour12: false},
     }},
     props: {
@@ -37,7 +37,7 @@ export default {
     },
     computed: {
         event: function () {
-            return this.$store.getters.getEventById(this.id);
+            return store.getters.getEventById(this.id);
         }
     },
 }
