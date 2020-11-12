@@ -12,8 +12,7 @@ import router from '@/router'
 export default {
     components: { Button },
     data(){return{
-        searchWord: "",
-        prevSearches: []
+        searchWord: ""
     }},
     methods: {
         dispatchSearch() {

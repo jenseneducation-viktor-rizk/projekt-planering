@@ -23,6 +23,7 @@
 import Attend from '@/components/Attend'
 import store from '@/store'
 export default {
+    name: 'EventHeader',
     components: { Attend },
     data(){return{
         dateOptions: { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric',  hour12: false},
