@@ -3,8 +3,8 @@ import { shallowMount } from '@vue/test-utils'
 import Home from '@/views/Home.vue'
 
 describe('Home.vue', () => {
+    const wrapper = shallowMount(Home)
     it('should render Home', () => {
-        const wrapper = shallowMount(Home)
         expect(wrapper.find('#home').exists()).toBe(true)
     })
 });
